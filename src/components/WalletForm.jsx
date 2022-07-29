@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getCurrencies } from '../redux/actions/expensesAction';
 
-export class WalletForm extends Component {
+class WalletForm extends Component {
   componentDidMount() {
     const { saveCurrencies } = this.props;
     saveCurrencies();
@@ -11,7 +11,6 @@ export class WalletForm extends Component {
 
   render() {
     const { currencies } = this.props;
-    console.log(currencies);
     return (
       <div>
         <label htmlFor="expenseValue">
@@ -91,5 +90,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   saveCurrencies: () => dispatch(getCurrencies()),
 });
+// pode colocar qualquer nome "saveCurrencies"
+// dispatch "dispara", "envio"
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);
