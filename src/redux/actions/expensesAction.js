@@ -1,5 +1,6 @@
 export const EXPENSES_DATA = 'EXPENSES_DATA';
 export const SAVE_CURRENCIES = 'SAVE_CURRENCIES';
+export const ADD_EXPENSE = 'ADD_EXPENSE';
 
 export const expensesData = (payload) => ({
   type: EXPENSES_DATA,
@@ -19,9 +20,14 @@ export const getCurrencies = () => async (dispatch) => {
   dispatch(saveCurrencies(arrayCurrencies));
 };
 
-// export async function exchangeApi() {
-//   const APIURL = 'https://economia.awesomeapi.com.br/json/all';
-//   const response = await fetch(APIURL);
-//   const data = await response.json();
-//   return data;
-// }
+export async function exchangeApi() {
+  const APIURL = 'https://economia.awesomeapi.com.br/json/all';
+  const response = await fetch(APIURL);
+  const data = await response.json();
+  return data;
+}
+
+export const addExpense = (payload) => async (dispatch) => {
+  const data = await exchangeApi();
+  dispatch({ type: ADD_EXPENSE, data, payload });
+};
