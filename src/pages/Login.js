@@ -33,18 +33,24 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <input
-          type="email"
-          name="email"
-          data-testid="email-input"
-          onChange={ this.handleChange }
-        />
-        <input
-          type="password"
-          name="password"
-          data-testid="password-input"
-          onChange={ this.handleChange }
-        />
+        <label htmlFor="email">
+          Login:
+          <input
+            type="email"
+            name="email"
+            data-testid="email-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="password">
+          Senha:
+          <input
+            type="password"
+            name="password"
+            data-testid="password-input"
+            onChange={ this.handleChange }
+          />
+        </label>
         <button
           type="submit"
           onClick={ this.handleClick }
