@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BtnDelete from './btnDelete';
 
 class Table extends Component {
   render() {
@@ -29,7 +30,6 @@ class Table extends Component {
                 <td>{ exp.method }</td>
                 <td>{ Number(exp.value).toFixed(2) }</td>
                 <td>{ exp.exchangeRates[exp.currency].name }</td>
-                {/* <td>{ exp.currency }</td> */}
                 <td>{ Number(exp.exchangeRates[exp.currency].ask).toFixed(2) }</td>
                 <td>
                   {
@@ -39,6 +39,7 @@ class Table extends Component {
                   }
                 </td>
                 <td>Real</td>
+                <td><BtnDelete id={ exp.id } /></td>
               </tr>
             ))}
           </tbody>

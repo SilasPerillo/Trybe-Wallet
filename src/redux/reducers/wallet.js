@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, SAVE_CURRENCIES } from '../actions/expensesAction';
+import { ADD_EXPENSE, DELETE_EXPENSE, SAVE_CURRENCIES } from '../actions/expensesAction';
 
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 const INITIL_STATE = {
@@ -8,11 +8,6 @@ const INITIL_STATE = {
 
 function wallet(state = INITIL_STATE, action) {
   switch (action.type) {
-  // case EXPENSES_DATA:
-  //   return {
-  //     ...state,
-  //     expenses: [...state.expenses, action.payload],
-  //   };
   case SAVE_CURRENCIES:
     return {
       ...state,
@@ -22,6 +17,11 @@ function wallet(state = INITIL_STATE, action) {
     return {
       ...state,
       expenses: [...state.expenses, { ...action.payload, exchangeRates: action.data }],
+    };
+  case DELETE_EXPENSE:
+    return {
+      ...state,
+      expenses: action.auxExpense,
     };
   default:
     return state;
