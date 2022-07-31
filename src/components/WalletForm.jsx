@@ -3,13 +3,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addExpense, getCurrencies } from '../redux/actions/expensesAction';
 
+const alimentacao = 'Alimentação';
+const dinheiro = 'Dinheiro';
+const usd = 'USD';
+
 class WalletForm extends Component {
   state = {
     id: 0,
     value: '',
-    currency: 'USD',
-    method: 'dinheiro',
-    tag: 'alimentacao',
+    currency: usd,
+    method: dinheiro,
+    tag: alimentacao,
     description: '',
   }
 
@@ -32,9 +36,9 @@ class WalletForm extends Component {
     this.setState({
       id: numForId += id,
       value: '',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'alimentacao',
+      currency: usd,
+      method: dinheiro,
+      tag: alimentacao,
       description: '',
     });
   }
@@ -89,7 +93,7 @@ class WalletForm extends Component {
             onChange={ this.handleChange }
             data-testid="tag-input"
           >
-            <option value="Alimentação">Alimentação</option>
+            <option value={ alimentacao }>Alimentação</option>
             <option value="Lazer">Lazer</option>
             <option value="Trabalho">Trabalho</option>
             <option value="Transporte">Transporte</option>
