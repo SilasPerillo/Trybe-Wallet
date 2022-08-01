@@ -12,7 +12,7 @@ class BtnEdit extends Component {
         data-testid="edit-btn"
         onClick={ () => hanldeEdit(id) }
       >
-        Editar despesa
+        Editar
       </button>
     );
   }
